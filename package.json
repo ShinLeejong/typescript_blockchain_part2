@@ -1,0 +1,19 @@
+{
+  "name": "blockchain_typescript_parttwo",
+  "version": "1.0.0",
+  "description": "practice blockchain theory with typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShinLeejong/typescript_blockchain_part2.git"
+  },
+  "author": "ShinLeejong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShinLeejong/typescript_blockchain_part2/issues"
+  },
+  "homepage": "https://github.com/ShinLeejong/typescript_blockchain_part2#readme"
+}
