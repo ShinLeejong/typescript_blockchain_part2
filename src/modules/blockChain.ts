@@ -2,9 +2,11 @@ import { Block, DataType } from "./block";
 
 export class Blockchain {
   private blockchain: Block[];
+  private difficulty: number;
 
   constructor() {
     this.blockchain = [this.createBlock()];
+    this.difficulty = 5;
   }
 
   public getChain = (): Block[] => this.blockchain;
@@ -27,6 +29,7 @@ export class Blockchain {
     const previousHash = previousBlock.getHash();
     const block = new Block(index, data, previousHash.toString());
     this.pushBlock(block);
+    block.mineBlock(this.difficulty);
   };
 
   public validateBlockchain = (): boolean => {

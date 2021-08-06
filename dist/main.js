@@ -1,8 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const blockChain_1 = require("./modules/blockChain");
-let myCoin = new blockChain_1.Blockchain();
-myCoin.addBlock("아 심심해");
+exports.__esModule = true;
+var blockChain_1 = require("./modules/blockChain");
+var myCoin = new blockChain_1.Blockchain();
 if (myCoin.validateBlockchain())
     console.log("Validation for blockchain Completed");
+console.log("Mining Block...");
+myCoin.addBlock("아 심심해");
 //# sourceMappingURL=main.js.map
