@@ -1,30 +1,22 @@
 import * as crypto from "crypto-js";
-
-export type DataType =
-  | number
-  | string
-  | string[]
-  | Record<number | string, number | string>;
+import { Transaction } from "./transaction";
 
 export class Block {
-  private index: number;
   readonly timestamp = Date.now();
-  private data: DataType;
+  private transactions: Transaction[];
   private hash: string;
   private previousHash: string;
   private nonce: number;
 
-  constructor(index: number, data: DataType, previousHash: string) {
-    this.index = index;
-    this.data = data;
+  constructor(transactions: Transaction, previousHash: string) {
+    this.transactions = [transactions];
     this.previousHash = previousHash;
     this.hash = this.calculateHash();
     this.nonce = 0;
   }
 
-  public getIndex = () => this.index;
   public getTimestamp = () => this.timestamp;
-  public getData = () => this.data;
+  public gettransactions = () => this.transactions;
   public getHash = () => this.hash;
   public getPreviousHash = () => this.previousHash;
   public getNonce = () => this.nonce;
@@ -32,8 +24,7 @@ export class Block {
   public calculateHash = (): string => {
     return crypto
       .SHA256(
-        +this.index +
-          JSON.stringify(+this.data) +
+        JSON.stringify(+this.transactions) +
           this.previousHash +
           this.timestamp +
           this.nonce
@@ -48,6 +39,6 @@ export class Block {
       this.nonce++;
       this.hash = this.calculateHash();
     }
-    console.log(this.index + " of Block Mined! The Hash Value: " + this.hash);
+    console.log("Block Mined! The Hash Value: " + this.hash);
   };
 }
